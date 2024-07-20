@@ -1,0 +1,64 @@
+.profile-header {
+  width: 100%;
+  height: 300px; /* Ajusta la altura según tus necesidades */
+  display: flex;
+  align-items: center;
+  background-image: url('/assets/banners/wall-azul.svg');
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  justify-content: center;
+  color: white; /* Color del texto para mejor contraste */
+  flex-direction: column;
+  background-size: cover; /* Asegura que la imagen cubra todo el div */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+.profile-picture img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.profile-info {
+  margin-left: 16px;
+}
+
+.profile-info h2 {
+  margin: 0;
+  font-size: 30px;
+  color: #ffff;
+  font-family: var(--font-family-radio-canada-big);
+}
+
+ion-item {
+  ion-label {
+    font-family: var(--font-family-radio-canada-big);
+    font-size: 18px;
+  }
+}
+
+.login-button{
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 50px;
+  --border-radius: 12px;
+  // margin-top: 60px;
+  --box-shadow: none;
+  margin-top: 30px;
+}
+
+
+ion-card {
+  border: 1px solid #b8a9a9;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.center-boton {
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

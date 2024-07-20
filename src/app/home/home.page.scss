@@ -1,0 +1,286 @@
+.profile-header {
+  width: 100%;
+  height: 300px; /* Ajusta la altura según tus necesidades */
+  display: flex;
+  align-items: center;
+  // padding: 16px;
+  // background-color: #e0f7e0;
+  background-image: url('/assets/banners/stacked-peaks-haikei.svg');
+  // border-radius: 8px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  // margin: 16px;
+  justify-content: center;
+  color: white; /* Color del texto para mejor contraste */
+  // text-shadow: 1px 1px 2px black; /* Sombra al texto para mejor legibilidad */
+  flex-direction: column;
+  background-size: cover; /* Asegura que la imagen cubra todo el div */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+.profile-picture img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.profile-info {
+  margin-left: 16px;
+}
+
+.profile-info h2 {
+  margin: 0;
+  font-size: 30px;
+  color: #ffff;
+  font-family: var(--font-family-radio-canada-big);
+}
+
+.membership {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #ffff;
+  font-family: var(--font-family-radio-canada-big);
+}
+
+.membership .level {
+  margin-left: 8px;
+  font-weight: bold;
+  font-family: var(--font-family-radio-canada-big);
+  color: #ffff;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin: 16px;
+  padding: 16px;
+  // background-color: #e0f7e0;
+  border-radius: 8px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: var(--font-family-radio-canada-big);
+}
+
+
+.stat-label {
+  font-size: 14px;
+  color: #ffff;
+  font-family: var(--font-family-radio-canada-big);
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 8px;
+}
+
+.icon-container img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 8px;
+}
+
+.icon-container span {
+  font-size: 16px;
+  color: #333;
+  font-family: var(--font-family-radio-canada-big);
+  font-weight: bold;
+}
+
+.modulos-secundarios {
+  padding: 16px;
+
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: #606676;;
+  }
+}
+
+
+.modulos-principales {
+  padding: 16px;
+
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  .examination {
+    background: linear-gradient(135deg, #66bb6a 0%, #43a047 100%);
+  }
+
+  .registration {
+    background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+  }
+
+  .assessment {
+    background: linear-gradient(135deg, #ffca28 0%, #ffa000 100%);
+  }
+
+  .drag-test {
+    background: linear-gradient(135deg, #ec407a 0%, #d81b60 100%);
+  }
+
+  .service-card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 8px;
+  }
+
+  .service-card span {
+    font-size: 16px;
+    font-family: "Radio Canada Big", sans-serif;
+    font-weight: bold;
+  }
+}
+
+ion-card {
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.card-subtitle{
+  font-size: 18px;
+  font-family: var(--font-family-radio-canada-big);
+  color: #03060B;
+  text-align: center;
+}
+
+.label-clima{
+  font-size: 25px;
+  font-family: var(--font-family-radio-canada-big);
+  text-align: left;
+}
+
+.text-variables{
+  color: #333;
+  font-size: 20px;
+  font-family: var(--font-family-radio-canada-big);
+}
+.text-variables-label{
+  font-size: 15px;
+  font-family: var(--font-family-radio-canada-big);
+}
+
+.label-clim-list {
+  font-size: 12px;
+  font-family: var(--font-family-radio-canada-big);
+  font-weight: bold;
+  color: #606676;
+
+}
+
+ion-card-title{
+  color: #606676;
+  font-family: var(--font-family-radio-canada-big);
+}
+
+.datos-meteo-h {
+  color: #508C9B;
+  font-weight: bold;
+  font-family: var(--font-family-radio-canada-big);
+}
+
+.datos-meteo-all {
+  color: #134B70;
+  font-weight: bold;
+  font-family: var(--font-family-radio-canada-big);
+}
+
+.datos-meteo-speed {
+  color: #606676;
+  font-family: var(--font-family-radio-canada-big);
+}
+
+
+.temp-max {
+  color: #EF5A6F; /* Color de ejemplo para temp_max */
+  font-weight: bold;
+  font-family: var(--font-family-radio-canada-big);
+  font-size: 20px;
+  /* Otros estilos que desees agregar */
+}
+
+.temp-min {
+  color: #536493; /* Color de ejemplo para temp_min */
+  font-weight: bold;
+  font-family: var(--font-family-radio-canada-big);
+  font-size: 20px;
+  /* Otros estilos que desees agregar */
+}
+
+.p-climatico {
+  display: flex;
+  align-items: center;
+}
+
+
+.ion-item-custom {
+  --background: #3DC2FF;
+  --color: #fff;
+
+  --border-color: #fff;
+  --border-style: dashed;
+  --border-width: 2px;
+
+  --border-radius: 20px;
+
+  --ripple-color: purple;
+
+  --detail-icon-color: white;
+  --detail-icon-opacity: 1;
+  --detail-icon-font-size: 20px;
+}
+
+// Modal
+
+ion-modal {
+  --height: 50%;
+  --border-radius: 16px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+ion-modal::part(backdrop) {
+  background: rgba(209, 213, 219);
+  opacity: 1;
+}
+
+ion-modal ion-toolbar {
+  --background: rgb(14 116 144);
+  --color: white;
+}
+
+// Fin modal

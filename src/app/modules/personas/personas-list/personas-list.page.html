@@ -1,0 +1,60 @@
+<ion-content [fullscreen]="true">
+
+  <div class="profile-header">
+    <div class="profile-picture">
+      <img src="assets/icons-app/user.svg" alt="Profile Picture">
+    </div>
+    <div class="profile-info">
+      <h2>{{ pageName }}</h2>
+      <!-- <div class="membership">
+        <span>Vesión</span>
+        <span class="level">1.0</span>
+      </div> -->
+    </div>
+
+    <ion-button class="login-button" expand="block" shape="round" color="primary" (click)="personasCreatePage()">Agregar Persona</ion-button>
+
+    <!-- <div class="stats">
+      <div class="stat-item" style="padding-right: 40px;">
+        <span class="stat-value">100</span>
+        <br>
+        <span class="stat-label">Plantas</span>
+      </div>
+      <div class="stat-item" style="padding-right: 40px;">
+        <span class="stat-value">2</span>
+        <br>
+        <span class="stat-label">Fincas</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">21</span>
+        <br>
+        <span class="stat-label">Análisis</span>
+      </div>
+    </div> -->
+  </div>
+
+  <ion-card style="margin-top: 30px" button *ngFor="let persona of personas; let i = index" >
+    <ion-card-header>
+      <ion-item lines="full">
+        <ion-thumbnail slot="end" style="position: relative;">
+          <img alt="finca" src="assets/icons-app/user.svg" />
+          <div style="position: absolute; top: 0; left: 0;">
+            <ion-badge color="danger" slot="icon-only">{{i + 1}}</ion-badge>
+          </div>
+        </ion-thumbnail>
+        <ion-label>
+          <h3 style="color: #0E2954; font-weight: bold; font-size: 18px; font-family: var(--font-family-radio-canada-big);">{{persona.nombre}}</h3>
+          <h3 style="color: #2E8A99; font-weight: bold; font-size: 15px; font-family: var(--font-family-radio-canada-big);">Departamento: {{persona.departamento}}</h3>
+          <h3 style="color: #2B2730; font-weight: bold; font-size: 15px; font-family: var(--font-family-radio-canada-big);">Municipio / Vereda: {{persona.municipio}} / {{persona.vereda}}</h3>
+        </ion-label>
+      </ion-item>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="center-boton">
+        <p style="color: #E06469; font-weight: bold; font-size: 15px; font-family: var(--font-family-radio-canada-big);" class=""><ion-icon name="hand-left"></ion-icon>&nbsp; Tocar para ver detalles</p>
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

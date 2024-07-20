@@ -1,0 +1,7 @@
+{
+  "name": "app_clima_decision_2024_angular_v2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

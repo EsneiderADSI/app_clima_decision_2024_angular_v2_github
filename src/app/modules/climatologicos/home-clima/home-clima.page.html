@@ -1,0 +1,325 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Datos Climáticos</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+
+  <div class="profile-header">
+    <div class="profile-picture">
+      <img src="assets/icons-app/clima.svg" alt="Profile Picture">
+    </div>
+    <div class="profile-info">
+      <h2>Datos Climáticos</h2>
+      <div class="membership">
+        <span>Vesión</span>
+        <span class="level">1.0</span>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-item" style="padding-right: 40px;">
+        <span class="stat-value">100</span>
+        <br>
+        <span class="stat-label">Plantas</span>
+      </div>
+      <div class="stat-item" style="padding-right: 40px;">
+        <span class="stat-value">2</span>
+        <br>
+        <span class="stat-label">Fincas</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">21</span>
+        <br>
+        <span class="stat-label">Análisis</span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modulos-secundarios">
+    <!-- <h2>Datos Climáticos</h2> -->
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Calendario Lunar</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <div id="ex4"></div>
+
+      </ion-card-content>
+    </ion-card>
+
+
+    <ion-card [button]="true" id="open-modal-clima" expand="block" *ngIf="currentWeather" color="secondary">
+      <ion-card-header>
+        <ion-card-title>{{ currentWeather.name }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+                <ion-item class="ion-item-custom">
+                  <ion-thumbnail slot="start">
+                    <img width="50" height="50" [src]="'http://openweathermap.org/img/wn/' + currentWeather.weather[0].icon + '.png'" />
+                  </ion-thumbnail>
+                  <ion-label class="label-clima">{{ currentWeather.main.temp }} °C</ion-label>
+                  <ion-label>
+                    <h3>{{currentWeather.weather[0].description}}</h3>
+                  </ion-label>
+                </ion-item>
+
+                <br>
+
+                <ion-item lines="none" class="ion-item-custom">
+                  <ion-label class="text-variables-label"> <b> Humedad: </b></ion-label>
+                  <ion-note class="text-variables" slot="end">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-wash-temperature-4" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M3.486 8.965c.168 .02 .34 .033 .514 .035c.79 .009 1.539 -.178 2 -.5c.461 -.32 1.21 -.507 2 -.5c.79 -.007 1.539 .18 2 .5c.461 .322 1.21 .509 2 .5c.79 .009 1.539 -.178 2 -.5c.461 -.32 1.21 -.507 2 -.5c.79 -.007 1.539 .18 2 .5c.461 .322 1.21 .509 2 .5c.17 0 .339 -.014 .503 -.034" />
+                      <path d="M3 6l1.721 10.329a2 2 0 0 0 1.973 1.671h10.612a2 2 0 0 0 1.973 -1.671l1.721 -10.329" />
+                      <path d="M10 15h.01" />
+                      <path d="M14 15h.01" />
+                      <path d="M14 12h.01" />
+                      <path d="M10 12h.01" />
+                    </svg> {{currentWeather.main.humidity}} %</ion-note>
+                </ion-item>
+
+            </ion-col>
+            <ion-col>
+              <ion-item lines="none" class="ion-item-custom">
+                <ion-label class="text-variables-label"> <b> Temperatuta Mínima: </b></ion-label>
+                <ion-note class="text-variables" slot="end">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-temperature-minus" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M8 13.5a4 4 0 1 0 4 0v-8.5a2 2 0 0 0 -4 0v8.5" />
+                    <path d="M8 9l4 0" />
+                    <path d="M16 9l6 0" />
+                  </svg> {{currentWeather.main.temp_min}} &deg;C</ion-note>
+              </ion-item>
+              <br>
+
+              <ion-item lines="none" class="ion-item-custom">
+                <ion-label class="text-variables-label"> <b> Temperatuta Máxima: </b></ion-label>
+                <ion-note class="text-variables" slot="end">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-temperature-plus" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M8 13.5a4 4 0 1 0 4 0v-8.5a2 2 0 0 0 -4 0v8.5" />
+                    <path d="M8 9l4 0" />
+                    <path d="M16 9l6 0" />
+                    <path d="M19 6l0 6" />
+                  </svg> {{currentWeather.main.temp_max}} &deg;C</ion-note>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Por horas</ion-card-title>
+      <ion-card-subtitle>Detalles lore</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let item of forecast" button detail="true">
+
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-label class="label-clim-list" style="font-size: 12px;">{{ item.dt_txt }}</ion-label>
+              </ion-col>
+              <ion-col>
+                <ion-item lines="none">
+                  <ion-avatar slot="start">
+                    <img width="50" height="50" [src]="'http://openweathermap.org/img/wn/' + item.weather[0].icon + '.png'" />
+                  </ion-avatar>
+                  <ion-label>
+                    <p class="datos-meteo-h">{{item.main.humidity}} %</p>
+                    <p class="datos-meteo-all">{{item.clouds.all}} </p>
+                  </ion-label>
+                </ion-item>
+                <!-- <img [src]="'http://openweathermap.org/img/wn/' + item.weather[0].icon + '.png'" />
+              <p>{{ item.weather[0].description }}</p> -->
+              </ion-col>
+              <ion-col>
+                <p class="p-climatico">
+                  <span class="temp-max">{{ item.main.temp_max }}°</span> /
+                  <span class="temp-min">{{ item.main.temp_min }}°</span>
+                </p>
+              </ion-col>
+              <ion-col>
+                <p class="datos-meteo-speed"> {{ getWindDirection(item.wind.deg) }} - {{ item.wind.speed }} m/s</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Mapa de Temperatura</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div id="maptemp" style="height: 100vh; height: 30vh;"></div>
+      <div id="legend" class="legend">
+        <h3>Temperature (°C)</h3>
+        <div><span style="background-color: rgba(130, 22, 146, 1);"></span>-65°C</div>
+        <div><span style="background-color: rgba(130, 22, 146, 1);"></span>-55°C</div>
+        <div><span style="background-color: rgba(130, 22, 146, 1);"></span>-45°C</div>
+        <div><span style="background-color: rgba(130, 22, 146, 1);"></span>-40°C</div>
+        <div><span style="background-color: rgba(130, 87, 219, 1);"></span>-30°C</div>
+        <div><span style="background-color: rgba(32, 140, 236, 1);"></span>-20°C</div>
+        <div><span style="background-color: rgba(32, 196, 232, 1);"></span>-10°C</div>
+        <div><span style="background-color: rgba(35, 221, 221, 1);"></span>0°C</div>
+        <div><span style="background-color: rgba(194, 255, 40, 1);"></span>10°C</div>
+        <div><span style="background-color: rgba(255, 240, 40, 1);"></span>20°C</div>
+        <div><span style="background-color: rgba(255, 194, 40, 1);"></span>25°C</div>
+        <div><span style="background-color: rgba(252, 128, 20, 1);"></span>30°C</div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Gráficos</ion-card-title>
+    </ion-card-header>
+
+    <!-- <div style="width: 100%; height: 400px;">
+      <highcharts-chart
+        [Highcharts]="Highcharts"
+        [options]="chartOptions"
+        style="width: 100%; height: 100%; display: block;"
+      ></highcharts-chart>
+    </div> -->
+    <ion-card-content>
+      <div id="chartContainer" style="width: 100%; height: 400px;"></div>
+    </ion-card-content>
+  </ion-card>
+
+  </div>
+
+
+  <ion-modal #modal trigger="open-modal-clima" *ngIf="currentWeather">
+    <ng-template>
+      <ion-content>
+        <ion-toolbar>
+          <ion-title>Datos Climáticos Hoy </ion-title>
+          <ion-buttons slot="end">
+            <ion-button color="light" (click)="modal.dismiss()">Cerrar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-list>
+                <ion-item lines="none">
+                  <ion-avatar slot="start">
+                    <ion-img src="assets/icons-app/sund.svg"></ion-img>
+                  </ion-avatar>
+                  <ion-label>
+                    <h3>Temperatura</h3>
+                    <p>{{ currentWeather.main.temp }} °C</p>
+                  </ion-label>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-avatar slot="start">
+                    <ion-img src="assets/icons-app/sund.svg"></ion-img>
+                  </ion-avatar>
+                  <ion-label>
+                    <h3>Descripción</h3>
+                    <p>{{ currentWeather.weather[0].description }}</p>
+                  </ion-label>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-avatar slot="start">
+                    <ion-img src="assets/icons-app/sund.svg"></ion-img>
+                  </ion-avatar>
+                  <ion-label>
+                    <h3>feels_like</h3>
+                    <p>{{ currentWeather.main.feels_like }}</p>
+                  </ion-label>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-avatar slot="start">
+                    <ion-img src="assets/icons-app/sund.svg"></ion-img>
+                  </ion-avatar>
+                  <ion-label>
+                    <h3>temp_min</h3>
+                    <p>{{ currentWeather.main.temp_min }}</p>
+                  </ion-label>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-avatar slot="start">
+                    <ion-img src="assets/icons-app/sund.svg"></ion-img>
+                  </ion-avatar>
+                  <ion-label>
+                    <h3>temp_max</h3>
+                    <p>{{ currentWeather.main.temp_max }}</p>
+                  </ion-label>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-avatar slot="start">
+                    <ion-img src="assets/icons-app/sund.svg"></ion-img>
+                  </ion-avatar>
+                  <ion-label>
+                    <h3>pressure</h3>
+                    <p>{{ currentWeather.main.pressure }}</p>
+                  </ion-label>
+                </ion-item>
+              </ion-list>
+
+            </ion-col>
+            <ion-col>
+              <ion-item lines="none">
+                <ion-avatar slot="start">
+                  <ion-img src="assets/icons-app/sund.svg"></ion-img>
+                </ion-avatar>
+                <ion-label>
+                  <h3>humidity</h3>
+                  <p>{{ currentWeather.main.humidity }} °C</p>
+                </ion-label>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-avatar slot="start">
+                  <ion-img src="assets/icons-app/sund.svg"></ion-img>
+                </ion-avatar>
+                <ion-label>
+                  <h3>sea_level</h3>
+                  <p>{{ currentWeather.main.sea_level }} °C</p>
+                </ion-label>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-avatar slot="start">
+                  <ion-img src="assets/icons-app/sund.svg"></ion-img>
+                </ion-avatar>
+                <ion-label>
+                  <h3>grnd_level</h3>
+                  <p>{{ currentWeather.main.grnd_level }} °C</p>
+                </ion-label>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-avatar slot="start">
+                  <ion-img src="assets/icons-app/sund.svg"></ion-img>
+                </ion-avatar>
+                <ion-label>
+                  <h3>speed</h3>
+                  <p>{{ currentWeather.wind.speed }} °C</p>
+                </ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

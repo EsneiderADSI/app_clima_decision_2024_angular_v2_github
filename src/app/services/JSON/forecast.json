@@ -1,0 +1,98 @@
+{
+  "cod": "200",
+  "message": 0,
+  "cnt": 40,
+  "list": [
+      {
+          "dt": 1721412000,
+          "main": {
+              "temp": 300.78,
+              "feels_like": 303.35,
+              "temp_min": 300.78,
+              "temp_max": 302.53,
+              "pressure": 1014,
+              "sea_level": 1014,
+              "grnd_level": 936,
+              "humidity": 72,
+              "temp_kf": -1.75
+          },
+          "weather": [
+              {
+                  "id": 500,
+                  "main": "Rain",
+                  "description": "light rain",
+                  "icon": "10d"
+              }
+          ],
+          "clouds": {
+              "all": 89
+          },
+          "wind": {
+              "speed": 0.47,
+              "deg": 298,
+              "gust": 0.87
+          },
+          "visibility": 10000,
+          "pop": 0.86,
+          "rain": {
+              "3h": 2.4
+          },
+          "sys": {
+              "pod": "d"
+          },
+          "dt_txt": "2024-07-19 18:00:00"
+      },
+      {
+          "dt": 1721422800,
+          "main": {
+              "temp": 302.25,
+              "feels_like": 305.36,
+              "temp_min": 302.25,
+              "temp_max": 303.43,
+              "pressure": 1012,
+              "sea_level": 1012,
+              "grnd_level": 933,
+              "humidity": 66,
+              "temp_kf": -1.18
+          },
+          "weather": [
+              {
+                  "id": 500,
+                  "main": "Rain",
+                  "description": "light rain",
+                  "icon": "10d"
+              }
+          ],
+          "clouds": {
+              "all": 78
+          },
+          "wind": {
+              "speed": 1.18,
+              "deg": 322,
+              "gust": 1.56
+          },
+          "visibility": 10000,
+          "pop": 0.69,
+          "rain": {
+              "3h": 0.85
+          },
+          "sys": {
+              "pod": "d"
+          },
+          "dt_txt": "2024-07-19 21:00:00"
+      }
+  ],
+  "city": {
+      "id": 3684689,
+      "name": "El Carmen de Chucurí",
+      "coord": {
+          "lat": 6.7725,
+          "lon": -73.5756
+      },
+      "country": "CO",
+      "population": 1602,
+      "timezone": -18000,
+      "sunrise": 1721385993,
+      "sunset": 1721430859
+  }
+}
