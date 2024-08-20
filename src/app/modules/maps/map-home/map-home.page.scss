@@ -1,0 +1,24 @@
+// #map {
+//   width: 100%;
+//   height: 100%;
+// }
+
+#map { position: absolute; width: 100%; height: 100%;}
+
+/* Scoped components require higher specificity to customize */
+ion-searchbar.custom {
+  --background: #fff;
+  --color: black;
+  --placeholder-color: black;
+  --icon-color: black;
+  --clear-button-color: black;
+  --border-radius: 20px;
+}
+
+ion-searchbar.ios.custom {
+  --cancel-button-color: #19422d;
+}
+
+ion-searchbar.md.custom {
+  --cancel-button-color: black;
+}

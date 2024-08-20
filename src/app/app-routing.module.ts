@@ -25,6 +25,10 @@ const routes: Routes = [
         loadChildren: () => import('./modules/personas/personas-add/personas-add.module').then( m => m.PersonasAddPageModule)
       },
       {
+        path: 'map-home',
+        loadChildren: () => import('./modules/maps/map-home/map-home.module').then( m => m.MapHomePageModule)
+      },
+      {
         path: 'map-ideam',
         loadChildren: () => import('./modules/maps/map-ideam/map-ideam.module').then( m => m.MapIdeamPageModule)
       },

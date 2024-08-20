@@ -6,6 +6,7 @@ import * as Highcharts from 'highcharts';
 import { Chart } from 'highcharts';
 import { CalendarificService } from 'src/app/services/calendarific.service';
 import { LunarService } from 'src/app/services/lunar.service';
+import { Geolocation } from '@capacitor/geolocation';
 
 
 @Component({
@@ -27,18 +28,32 @@ export class HomeClimaPage implements OnInit {
   forecast: any[] = [];
   currentWeather: any;
 
+  hourlyForecast: any[] = [];
+
   constructor(
     private weatherService: WeatherService,
     private calendarificService: CalendarificService,
     private lunarService: LunarService
   ) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+
+    try {
+      const position = await Geolocation.getCurrentPosition();
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      this.getWeatherForecast(lat, lon);
+      this.getCurrentWeather(lat, lon);
+      this.getWeatherForecastChart(lat, lon);
+    } catch (err) {
+      console.error('Error getting location', err);
+    }
+
     // const lat = 6.5187635;
     // const lon = -74.105555;
-    this.getWeatherForecast(6.5187635, -74.105555);
-    this.getCurrentWeather(6.5187635, -74.105555);
-    this.getWeatherForecastChart(6.5187635, -74.105555);
+    // this.getWeatherForecast(6.5187635, -74.105555);
+    // this.getCurrentWeather(6.5187635, -74.105555);
+    // this.getWeatherForecastChart(6.5187635, -74.105555);
     // this.initializeMap();
     const year = new Date().getFullYear();
     const month = new Date().getMonth() + 1;
@@ -55,15 +70,30 @@ export class HomeClimaPage implements OnInit {
     this.map.remove();
   }
 
+  // getWeatherForecast(lat: number, lon: number) {
+  //   this.weatherService.getWeatherForecast(lat, lon).subscribe((data: any) => {
+  //     this.forecast = data.list;
+  //   });
+  // }
+
   getWeatherForecast(lat: number, lon: number) {
     this.weatherService.getWeatherForecast(lat, lon).subscribe((data: any) => {
-      this.forecast = data.list;
+      // Accediendo al array "hour" del primer día de la previsión.
+      this.hourlyForecast = data.forecast.forecastday[0].hour;
+      console.log(this.hourlyForecast); // Para verificar los datos en la consola.
     });
   }
 
+  // getCurrentWeather(lat: number, lon: number) {
+  //   this.weatherService.getCurrentWeather(lat, lon).subscribe((data: any) => {
+  //     this.currentWeather = data;
+  //   });
+  // }
   getCurrentWeather(lat: number, lon: number) {
-    this.weatherService.getCurrentWeather(lat, lon).subscribe((data: any) => {
+    this.weatherService.getWeatherForecast(lat, lon).subscribe((data: any) => {
+      // Accediendo al array "hour" del primer día de la previsión.
       this.currentWeather = data;
+      // console.log(this.hourlyForecast); // Para verificar los datos en la consola.
     });
   }
 

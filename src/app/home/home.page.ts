@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 import { WeatherService } from '../services/weather.service';
+import { Geolocation } from '@capacitor/geolocation';
 
 
 
@@ -32,7 +33,17 @@ export class HomePage implements OnInit {
     this.navCtrl.navigateForward('/tabs/personas-list');
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    try {
+      const position = await Geolocation.getCurrentPosition();
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      this.getWeatherForecast(lat, lon);
+      this.getCurrentWeather(lat, lon);
+    } catch (err) {
+      console.error('Error getting location', err);
+    }
+
     // navigator.geolocation.getCurrentPosition((position) => {
     //   const lat = position.coords.latitude;
     //   const lon = position.coords.longitude;
@@ -46,8 +57,8 @@ export class HomePage implements OnInit {
       //   this.weatherData = response.data;
       // });
 
-      this.getWeatherForecast(6.5187635, -74.105555);
-      this.getCurrentWeather(6.5187635, -74.105555);
+      // this.getWeatherForecast(6.5187635, -74.105555);
+      // this.getCurrentWeather(6.5187635, -74.105555);
 
 
   }

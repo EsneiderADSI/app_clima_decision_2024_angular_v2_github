@@ -9,9 +9,20 @@ import { Observable } from 'rxjs';
 })
 export class WeatherService {
 
+
+
+
   private apiUrl = 'https://api.openweathermap.org/data/2.5/forecast';
   private currentWeatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather';
   private apiKey = 'e10c846612ece0112a5b9a3431e8356d';
+
+
+  // API DE WEATHER API
+
+  private apiUrlWheather = 'https://api.weatherapi.com/v1/forecast.json';
+  // private currentWeatherApi = 'https://api.openweathermap.org/data/2.5/weather';
+  private apiKeyWheather = '662e400b01f04f96aff164206241308';
+
 
   constructor(private http: HttpClient) {
     axios.defaults.params = {};
@@ -28,8 +39,12 @@ export class WeatherService {
   //   });
   // }
 
+  // getWeatherForecast(lat: number, lon: number): Observable<any> {
+  //   const url = `${this.apiUrl}?lat=${lat}&lon=${lon}&appid=${this.apiKey}&units=metric`;
+  //   return this.http.get(url);
+  // }
   getWeatherForecast(lat: number, lon: number): Observable<any> {
-    const url = `${this.apiUrl}?lat=${lat}&lon=${lon}&appid=${this.apiKey}&units=metric`;
+    const url = `${this.apiUrlWheather}?key=${this.apiKeyWheather}&q=${lat},${lon}&days=5`;
     return this.http.get(url);
   }
 
